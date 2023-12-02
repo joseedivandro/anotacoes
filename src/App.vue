@@ -16,7 +16,7 @@ import Header from "./components/Header.vue"
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh; /* Certifique-se de que a altura da div é pelo menos a altura da tela inteira */
-  background-color: red;
+  min-height: 100vh; 
+  background-color: #F4F3F8;
 }
 </style>
