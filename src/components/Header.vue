@@ -1,3 +1,3 @@
 <template>
-    <h2>testando aqui no templete</h2>
+    <h2>Anotações</h2>
 </template>
