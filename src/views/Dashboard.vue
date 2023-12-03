@@ -13,11 +13,17 @@
         <div>{{ anotacao.valor }}</div>
         <div>{{ anotacao.categoria }}</div>
         <div>{{ anotacao.lembrete }}</div>
-        <button @click="editarAnotacao(index)">Editar</button>
-        <button @click="deletarAnotacao(index)">Deletar</button>
+        <button @click="editarAnotacao(anotacao)">Editar</button>
+        <button @click="confirmarDelecaoAnotacao(index)">Deletar</button>
       </li>
     </ul>
+
+    <div v-if="showDeleteConfirmation" class="popup">
+      <p>Tem certeza que deseja apagar esta anotação?</p>
+      <button @click="cancelarDelecaoAnotacao">Cancelar</button>
+      <button @click="deletarAnotacao">Confirmar</button>
     </div>
+  </div>
   </template>
   
   <style scoped>
@@ -56,20 +62,60 @@
     font-size: 12px;
     margin-bottom: 25px;
   }
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
   </style>
   
   <script setup>
   import LocalStorageService from '../service/LocalStorageService.js';
+  import router from "../routes/index.js"
   import { ref, onMounted } from 'vue';
   
   const anotacoes = ref([]);
+  const anotacaoSelecionada = ref(null);
+  const showDeleteConfirmation = ref(false);
   
   const carregarAnotacoes = () => {
     anotacoes.value = LocalStorageService.getAnotacoes();
+  };
+  
+  const editarAnotacao = (anotacao) => {
+  // Navegar para a página de criação/editação e passar a anotação existente
+  router.push({ path: '/criar-notacoes', query: { anotacaoExistente: JSON.stringify(anotacao) } });
+};
+  
+  const confirmarDelecaoAnotacao = (index) => {
+    anotacaoSelecionada.value = index;
+    showDeleteConfirmation.value = true;
+  };
+  
+  const cancelarDelecaoAnotacao = () => {
+    anotacaoSelecionada.value = null;
+    showDeleteConfirmation.value = false;
+  };
+  
+  const deletarAnotacao = () => {
+    if (anotacaoSelecionada.value !== null) {
+      // Lógica para deletar a anotação
+      anotacoes.value.splice(anotacaoSelecionada.value, 1);
+      LocalStorageService.setAnotacoes(anotacoes.value);
+  
+      // Limpar estado
+      anotacaoSelecionada.value = null;
+      showDeleteConfirmation.value = false;
+    }
   };
   
   onMounted(() => {
     carregarAnotacoes();
   });
   </script>
-  
