@@ -1,7 +1,22 @@
-# Vue 3 + Vite
+# Anotações
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Desafio técnico fron-end com vueJS
 
-## Recommended IDE Setup
+o código tem o intuito de fazer uma agende simplificada de anotações de forma responsiva.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Para rodar o projeto localmente basta seguir os passos:
+
+git clone https://github.com/joseedivandro/anotacoes.git
+
+entre na pasta do arquivo que você clonou 
+
+abra o terminal na pasta 
+
+digite npm install e aperte enter
+
+após a instalação  dê o comando no terminal -> npm run dev
+
+Caso você não queira ter este trabalho, basta acessar o deploy da aplicação clicando [aqui](https://anotacoes-seven.vercel.app) 
+
+
+![opera_WDrmRA2P54](https://github.com/joseedivandro/anotacoes/assets/64916664/15971c86-86f0-48f3-9e12-5d967b1b95b9)
