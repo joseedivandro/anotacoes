@@ -1,6 +1,5 @@
 <template>
-    <div class="container">
-
+    <div class="organize">
       <ul>
       <li v-for="(anotacao, index) in anotacoes" :key="index" class="anotation-view">
         <ion-icon name="attach-outline" class="small-clip"></ion-icon>
@@ -33,6 +32,11 @@
   </template>
   
   <style scoped>
+
+  .organiza{
+    position: relative;
+  }
+
   .criar-btn {
     background-color: #1395FD;
     color: white;
@@ -41,6 +45,8 @@
     border-radius: 20px;
     border: none;
     cursor: pointer;
+    top: 200% ;
+    right: -35%;
   }
 
   .clip{
@@ -61,12 +67,7 @@
     padding: 8px;
     color: #E28375;
   }
-  .container{
-    display: flex;
-
-   
-   
-  }
+  
 
   h3{
    color: #1395FD;
@@ -134,6 +135,9 @@
 .align{
   display: flex;
 }
+
+
+
   </style>
   
   <script setup>

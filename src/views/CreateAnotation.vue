@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div clas="organize">
     <form @submit.prevent="criarAnotacao" class="flex-column">
       <div class="form-group">
-        <textarea v-model="anotacao.texto" id="texto" required></textarea>
+        <textarea v-model="anotacao.texto" id="texto" required placeholder="Exp.: Ao ligar falar com Luiza"></textarea>
       </div>
       <div class="form-group">
         <label for="valor">Potencial de negócio</label>
-        <input v-model="anotacao.valor" type="number" id="valor" />
+        <input v-model="anotacao.valor" type="float" id="valor" placeholder="R$ 00,00" />
       </div>
       <div class="form-group">
         <label for="categoria">Categorização</label>
@@ -22,8 +22,8 @@
       </div>
       <div class="form-group">
         <div class="button-group">
-          <router-link to="/" class="icon"><ion-icon name="trash-outline"></ion-icon></router-link>
-          <button type="submit" class="save">Salvar</button>
+          <router-link to="/" class="icon  "><ion-icon name="trash-outline"></ion-icon></router-link>
+          <button type="submit" class="save ">Salvar</button>
         </div>
       </div>
     </form>
@@ -31,9 +31,22 @@
 </template>
 
 <style scoped>
+
+
+label{
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+
+form{
+  width: 20vw;
+
+}
   .flex-column {
     display: flex;
     flex-direction: column;
+    
   }
 
   .form-group {
@@ -47,18 +60,20 @@
   }
 
   .button-group {
-    display: flex;
+    margin-top: 40px;
+   display: flex;
     justify-content: space-between;
+  
   }
 
   input {
-    border-radius: 10px;
-    height: 25px;
+    border-radius: 15px;
+    height: 30px;
     border-color: white;
   }
 
   textarea {
-    height: 70px;
+    height: 100px;
     border-radius: 10px;
     border-color: white;
   }
@@ -71,9 +86,15 @@
   .save {
     background-color: #1395fd;
     color: white;
-    border-radius: 10px;
+    border-radius: 15px;
     border: none !important;
-    width: 120px;
+    width: 200px;
+    font-weight: bold;
+  }
+
+  .save:hover{
+    cursor: pointer;
+    background-color: blue;
   }
 
   ion-icon {
@@ -88,7 +109,47 @@
     height: 30px;
     border-radius: 15px;
     background-color: #e28375;
+    font-weight: bold;
   }
+
+  .icon:hover{
+    background-color: red;
+  }
+
+
+  @media only screen and (max-width: 913px) {
+
+    
+  form{
+  width: 70vw;
+
+}
+
+textarea {
+  height: 17vh;
+}
+
+input, select, option , value{
+  height: 5vh;
+}
+
+label{
+  font-size: 130%;
+  margin-bottom: 5px;
+}
+
+#categoria{
+  font-size: 105%;
+}
+
+#lembrete{
+  font-size: 110%;
+}
+
+
+
+  
+}
 </style>
 
 <script setup>
